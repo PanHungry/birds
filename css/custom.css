@@ -1,5 +1,6 @@
 body{
     color: #f4f4f4;
+    background-color: rgb(95, 93, 70);
 }
 
 .aRegister{
@@ -47,6 +48,10 @@ body{
 .g-recaptcha {
     margin: 0 auto;
     width: 304px;
+}
+
+.text-danger{
+    color: #fda43e !important;
 }
 
 
