@@ -25,14 +25,15 @@
 
                 <div class="form-group">
                     <label for="inputNickname">Nazwa użytkownika</label>
-                    <input type="text" class="form-control" name="name" id="inputNickname"
-                        placeholder="Wpisz nazwę użytkownika">
+                    <input type="text" class="form-control" name="name" id="inputNickname" 
+                    placeholder="Wpisz nazwę użytkownika">
                     <div id="divName"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail">Adres email</label>
-                    <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Wpisz email">
+                    <input type="email" class="form-control" name="email" id="inputEmail" 
+                    placeholder="Wpisz email">
                     <div id="divEmail"></div>
                 </div>
 
