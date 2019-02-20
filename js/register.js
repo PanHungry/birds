@@ -121,12 +121,12 @@ function validateForm() {
 
   ////////// RECAPTCHA VALIDATION ///////////////
 
-  if (response.length == 0) {
-    regValidation('divRecaptcha', 'Potwierdź, że jesteś człowiekiem!');
-  }
-  else {
-    deleteChildren('divRecaptcha');
-  }
+  // if (response.length == 0) {
+  //   regValidation('divRecaptcha', 'Potwierdź, że jesteś człowiekiem!');
+  // }
+  // else {
+  //   deleteChildren('divRecaptcha');
+  // }
 
   ///////// validationOK? ///////////////
 

@@ -13,6 +13,16 @@
 </head>
 
 <body>
+<!-- PHP -->
+
+    <?php
+
+ require_once "checkReg.php";
+
+    ?>
+
+<!-- HTML -->
+
     <div class="index">
         <div class="col-md-8 col-lg-6 col-xl-5" id="wholeRegCol">
 
@@ -21,34 +31,46 @@
                 <a href="index.html" class="aRegister">Kliknij, by wrócić na stronę główną</a>
             </div>
 
-            <form name="regForm" action="#" method="post" onsubmit="return validateForm()">
+            <form method="post" name="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">
 
                 <div class="form-group">
                     <label for="inputNickname">Nazwa użytkownika</label>
-                    <input type="text" class="form-control" name="name" id="inputNickname" 
-                    placeholder="Wpisz nazwę użytkownika">
-                    <div id="divName"></div>
+                    <input type="text" name="name" class="form-control" id="inputNickname" 
+                    placeholder="Wpisz nazwę użytkownika"
+                    value= "<?php
+                    if (isset($_SESSION['fr_name'])) {
+                        echo $_SESSION['fr_name'];
+                        unset($_SESSION['fr_name']);
+                    }
+                    ?>">
+                    <div id="divName"> <?php echo $nameErr;?></div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputEmail">Adres email</label>
                     <input type="email" class="form-control" name="email" id="inputEmail" 
-                    placeholder="Wpisz email">
-                    <div id="divEmail"></div>
+                    placeholder="Wpisz email"
+                    value= "<?php
+                    if (isset($_SESSION['fr_email'])) {
+                        echo $_SESSION['fr_email'];
+                        unset($_SESSION['fr_email']);
+                    }
+                    ?>">
+                    <div id="divEmail"><?php echo $emailErr;?></div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword1">Hasło</label>
                     <input type="password" class="form-control" name="password1" id="inputPassword1"
                         placeholder="Wpisz hasło">
-                    <div id="divPassword1"></div>
+                    <div id="divPassword1"><?php echo $password1Err;?></div>
                 </div>
 
                 <div class="form-group mb-4">
                     <label for="inputPassword2">Powtórz hasło</label>
                     <input type="password" class="form-control" name="password2" id="inputPassword2"
                         placeholder="Wpisz hasło">
-                    <div id="divPassword2"></div>
+                    <div id="divPassword2"><?php echo $password2Err;?></div>
                 </div>
 
                     <div class="g-recaptcha" data-sitekey="6LfDQn4UAAAAALg30Vdd15-oBwf_Ahu05mZTnPdI"></div>
