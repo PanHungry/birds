@@ -6,7 +6,7 @@ $validationOK = true;
 
 $name = $email = $password1 = $password2 = "";
 
-$nameErr = $emailErr = $password1Err = $password2Err = $passwordMatchErr = "";
+$nameErr = $emailErr = $password1Err = $password2Err = $recaptchaErr = "";
 
 function test_input($data) {
   $data = trim($data);
@@ -21,25 +21,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $_SESSION['fr_email'] = $_POST["email"];
   
     if (empty($_POST["name"])) {
-      $nameErr = "Name is required";
+      $nameErr = "Wpisz nazwę!";
+      $validationOK = false;
+    } else if ((strlen($_POST["name"]))>25) {
+      $nameErr = "Max 25 znaków!";
       $validationOK = false;
     } else {
       $name = test_input($_POST["name"]);
       // check if name only contains letters and whitespace
-      if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-        $nameErr = "Only letters and white space allowed"; 
+      if (!preg_match("/^[a-zA-Z0-9]+$/",$name)) {
+        $nameErr = "Używaj tylko znaków alfanumerycznych!"; 
         $validationOK = false;
       }
     }
 
     if (empty($_POST["email"])) {
-      $emailErr = "Email is required";
+      $emailErr = "Wpisz email!";
       $validationOK = false;
     } else {
       $email = test_input($_POST["email"]);
       // check if e-mail address is well-formed
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          $emailErr = "Invalid email format"; 
+          $emailErr = "Wpisz poprawny email!"; 
           $validationOK = false;
         }
     }
@@ -61,6 +64,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $password_hash = password_hash($_POST["password1"], PASSWORD_DEFAULT);
+
+    $secret_code = "6LfDQn4UAAAAAFm3rl45bpr3fkXdDKXBzY5GrqBZ";
+    $checkRecaptcha = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret_code.'&response='.$_POST[
+      'g-recaptcha-response']);
+    $answer = json_decode($checkRecaptcha);
+
+    if ($answer->success==false)
+		{
+			$validationOK = false;
+			$recaptchaErr = "Potwierdź, że jesteś człowiekiem!";
+		}
 
   if($validationOK == true){
 

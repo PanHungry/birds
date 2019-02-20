@@ -43,7 +43,7 @@
                         unset($_SESSION['fr_name']);
                     }
                     ?>">
-                    <div id="divName"> <?php echo $nameErr;?></div>
+                    <div id="divName"> <?php echo '<div class="text-danger regError">'.$nameErr.'</div>';?></div>
                 </div>
 
                 <div class="form-group">
@@ -56,25 +56,25 @@
                         unset($_SESSION['fr_email']);
                     }
                     ?>">
-                    <div id="divEmail"><?php echo $emailErr;?></div>
+                    <div id="divEmail"><?php echo '<div class="text-danger regError">'.$emailErr.'</div>';?></div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputPassword1">Hasło</label>
                     <input type="password" class="form-control" name="password1" id="inputPassword1"
                         placeholder="Wpisz hasło">
-                    <div id="divPassword1"><?php echo $password1Err;?></div>
+                    <div id="divPassword1"><?php echo '<div class="text-danger regError">'.$password1Err.'</div>';?></div>
                 </div>
 
                 <div class="form-group mb-4">
                     <label for="inputPassword2">Powtórz hasło</label>
                     <input type="password" class="form-control" name="password2" id="inputPassword2"
                         placeholder="Wpisz hasło">
-                    <div id="divPassword2"><?php echo $password2Err;?></div>
+                    <div id="divPassword2"><?php echo '<div class="text-danger regError">'.$password2Err.'</div>';?></div>
                 </div>
 
                     <div class="g-recaptcha" data-sitekey="6LfDQn4UAAAAALg30Vdd15-oBwf_Ahu05mZTnPdI"></div>
-                    <div id="divRecaptcha"></div>
+                    <div id="divRecaptcha"><?php echo '<div class="text-danger regError">'.$recaptchaErr.'</div>';?></div>
 
                 <button type="submit" class="btn btn-light">Zarejestruj się!</button>
             </form>
