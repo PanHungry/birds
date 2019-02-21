@@ -28,7 +28,7 @@
 
             <div id="register">
                 <h1>Załóż konto!</h1>
-                <a href="index.html" class="aRegister">Kliknij, by wrócić na stronę główną</a>
+                <a href="index.php" class="aRegister">Kliknij, by wrócić na stronę główną</a>
             </div>
 
             <form method="post" name="regForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" onsubmit="return validateForm()">

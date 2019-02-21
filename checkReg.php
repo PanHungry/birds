@@ -113,6 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailErr = "Taki email jest już używany!";
       }
 
+      // If ok, add user to database //
+
         if($validationOK == true){
           $dbAddUser = "INSERT INTO users VALUES (NULL, '$name', '$email', '$password_hash')";
 
