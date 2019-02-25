@@ -21,7 +21,7 @@ require_once "login.php";
 </head>
 
 <body>
-    <div class="index">
+    <div class="index" id="indexbg">
         <div class="col-md-8 col-lg-6 col-xl-5" id="logForm">
             <div id="welcome">
                 <h1>Witaj w świecie ptaków!</h1>
@@ -39,7 +39,7 @@ require_once "login.php";
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Wpisz hasło">
                     <div id="divPasswordError"> <?php echo '<div class="text-danger regError">'.$passwordLogErr.'</div>';?></div>
                 </div>
-                <button type="submit" class="btn btn-light">Zaloguj się</button>
+                <button type="submit" class="btn btn-light regbtn">Zaloguj się</button>
             </form>
         </div>
     </div>

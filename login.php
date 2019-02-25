@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else{
         // echo "Połączenie udane ";
         $login = $_POST["name"];
+        $_SESSION["name"] = $_POST["name"];
         $password = $_POST["password"];
 
         $login = htmlentities($login, ENT_QUOTES, "UTF-8");
@@ -36,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if(password_verify($password, $userData['password'])){
                   // echo " password ok";
+                  $_SESSION["id"] = $userData['ID'];
                 } else{
                   $validationLogOK = false;
                   $passwordLogErr = "Błędne hasło!";
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $result->free_result();
 
         if($validationLogOK){
-          header('Location: welcome.html');
+          header('Location: main.php');
         }
 
       }

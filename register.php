@@ -23,7 +23,7 @@
 
 <!-- HTML -->
 
-    <div class="index">
+    <div class="index" id="indexbg">
         <div class="col-md-8 col-lg-6 col-xl-5" id="wholeRegCol">
 
             <div id="register">
@@ -76,7 +76,7 @@
                     <div class="g-recaptcha" data-sitekey="6LfDQn4UAAAAALg30Vdd15-oBwf_Ahu05mZTnPdI"></div>
                     <div id="divRecaptcha"><?php echo '<div class="text-danger regError">'.$recaptchaErr.'</div>';?></div>
 
-                <button type="submit" class="btn btn-light">Zarejestruj się!</button>
+                <button type="submit" class="btn btn-light regbtn">Zarejestruj się!</button>
             </form>
         </div>
     </div>
