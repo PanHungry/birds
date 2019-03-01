@@ -5,7 +5,9 @@
 
 <?php
 
-require_once "login.php";
+session_start();
+
+// require_once "login.php";
 
 ?>
 
@@ -17,10 +19,11 @@ require_once "login.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
     <title>Birds</title>
 </head>
 
-<body>
+<body id="mainPage">
     <div class="index" id="mainbg">
         <div id="main">
 
@@ -38,10 +41,10 @@ require_once "login.php";
                     <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                         <ul class="navbar-nav w-100 justify-content-center">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Strona główna</a>
+                                <a class="nav-link" href="main.php">Strona główna</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Moja lista</a>
+                                <a class="nav-link" href="addSpecies.php">Moja lista</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Moje lokalizacje</a>
@@ -56,47 +59,49 @@ require_once "login.php";
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav> 
 
                 <div id="addForms">
                     <button type="submit" class="btn btn-success mt-5" onclick="addFields()">Dodaj więcej gatunków</button>
 
-                    <form class="form-group justify-content-center" id="addForm" action="addSpecies.php" method="POST">
-                        <div class="row mt-5">
+                    <form autocomplete="off" class="form-group justify-content-center" id="addForm" action="addSpecies.php" method="POST">
+                        <div class="row mt-3">
                             <div class="form-group col-md">
                                 <label for="speciesInput0">Gatunek:</label>
-                                <input type="text" class="form-control ml-2" id="speciesInput0" name="speciesInput0">
+                                <input type="text" class="form-control " id="speciesInput0" name="speciesInput0" placeholder="Wpisz gatunek" >
+                                <div id="response"></div>
                             </div>
                             <div class="form-group col-md">
                                 <label for="locationInput0">Lokalizacja:</label>
-                                <input type="text" class="form-control ml-2" id="locationInput0" name="locationInput0">
+                                <input type="text" class="form-control " id="locationInput0" name="locationInput0">
                             </div>
                             <div class="form-group col-md">
                                 <label for="dateInput0">Data:</label>
-                                <input type="date" class="form-control ml-2" id="dateInput0" name="dateInput0">
+                                <input type="date" class="form-control " id="dateInput0" name="dateInput0">
                             </div>
                         </div>
                     </form>
-
-                    <button type="submit" class="btn btn-light ml-2 mt-5" form="addForm">Dodaj</button>
-
+                    <button type="submit" class="btn btn-light mt-2" form="addForm">Dodaj</button>
                 </div>
         </div>
     </div>
 
-
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/autocomplete.js"></script>
+
+
+
 </body>
 
 </html>
