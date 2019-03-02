@@ -6,6 +6,10 @@ require_once "connect.php";
         $response = `<ul class="list-group"><li>No data found!</li></ul>`;
 
         $conn = new mysqli($host, $db_user, $db_password, $db_name);
+
+        $polishSigns ="SET NAMES utf8";
+        $sqlPL = $conn->query($polishSigns);
+
         $q = $conn->real_escape_string($_POST['q']);
 
         $sql = $conn->query("SELECT speciesPL FROM birds WHERE speciesPL LIKE '%$q%'");

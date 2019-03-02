@@ -1,7 +1,16 @@
+var inputID = "";
+var response = "";
+
 $(document).ready(function() {
-    $("#speciesInput0").keyup(function() {
-        var query = $("#speciesInput0").val();
-        
+    $(document.body).on('keyup', '.autoCompleteInput' ,function(e){
+        var query = $(this).val();
+
+        if (inputID == ""){
+        inputID = e.target.id;
+        response = "#response"+inputID;   
+        console.log(inputID); 
+        }    
+       
         if(query.length > 2) {
             $.ajax(
                 {
@@ -12,17 +21,18 @@ $(document).ready(function() {
                         q: query
                     },
                     success: function(data) {
-                        $("#response").html(data);
+                        $(response).html(data);
                     },
                     dataType: 'text'
                 }
             )
         }
     })
-
         $(document).on('click', 'li', function () {
             var speciesPL = $(this).text();
-            $("#speciesInput0").val(speciesPL);
-            $("#response").html("");
+            $("#"+inputID).val(speciesPL);
+            $(response).html("");
+            inputID = "";
+            response = "";
         })
 })
