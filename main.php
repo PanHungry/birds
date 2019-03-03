@@ -47,7 +47,7 @@ session_start();
                                 <a class="nav-link" href="addSpecies.php">Moja lista</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Moje lokalizacje</a>
+                                <a class="nav-link" href="locations.php">Moje lokalizacje</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Ranking</a>
@@ -60,6 +60,8 @@ session_start();
                         </ul>
                     </div>
                 </nav> 
+
+                <!-- Form -->
 
                 <div id="addForms">
                     <button type="submit" class="btn btn-success mt-5" onclick="addFields()">Dodaj więcej gatunków</button>
