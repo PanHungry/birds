@@ -79,7 +79,17 @@
     margin:auto;
 }
 
+/* locations */
 
+#map {
+    height: 600px;
+}
+
+#map img {
+ max-width: none;
+ min-width: 0px;
+ height: auto;
+}
 
 @media (min-width: 768px){
 
