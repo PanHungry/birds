@@ -20,8 +20,18 @@ $id = $_SESSION["id"];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Leaflet -->
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+
+
     <title>Birds</title>
 </head>
 
@@ -67,8 +77,7 @@ $id = $_SESSION["id"];
 
             <div id="addLocation">
 
-                <form autocomplete="off" class="form-group justify-content-center" id="addForm" action="#"
-                    method="POST">
+                <form autocomplete="off" class="form-group justify-content-center" id="addLocationForm" method="POST" action="locations.php">
                     <div class="row mt-3">
                         <div class="form-group col-md">
                             <label for="locationName">Nazwa lokalizacji:</label>
@@ -87,44 +96,25 @@ $id = $_SESSION["id"];
                         </div>
                     </div>
                 </form>
-                <button type="submit" class="btn btn-light mt-2" form="addForm">Dodaj</button>
+                <button type="submit" class="btn btn-light mt-2" form="addLocationForm">Dodaj</button>
             </div>
 
             <!-- Map -->
-            <div class="row text-left mt-5">
-                <div class="col-md-12">
-                    <div id='map'></div>
-                </div>
-            </div>
 
-            <script>
-                var user_location = [22.329196, 50.0259970];
-
-                mapboxgl.accessToken = 'pk.eyJ1IjoicGFuaHVuZ3J5IiwiYSI6ImNqc3RhenU4YTBvanM0M3A0NnliNGhvZHUifQ.ESsq2KM1-mJaX930KeLVEg';
-                var map = new mapboxgl.Map({
-                    container: 'map',
-                    style: 'mapbox://styles/mapbox/streets-v11',
-                    zoom: 11,
-                    center: user_location
-                });
-            </script>
-
+            <div id="mapid" class="mt-5"></div>
 
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-
-
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/addLocation.js"></script>
 
 </body>
-
 </html>

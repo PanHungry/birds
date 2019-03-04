@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($validationLogOK){
           header('Location: main.php');
         }
-
+        $conn->close();
       }
   }
 

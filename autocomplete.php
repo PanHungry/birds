@@ -23,7 +23,7 @@ require_once "connect.php";
             $response .= "</ul>";
         }
 
-
+        $conn->close();
         exit($response);
     }
 

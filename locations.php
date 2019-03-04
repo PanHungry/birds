@@ -10,6 +10,8 @@ session_start();
 $name = $_SESSION["name"];
 $id = $_SESSION["id"];
 
+include "insertLocation.php";
+
 ?>
 
 <!-- HTML -->
@@ -62,7 +64,6 @@ $id = $_SESSION["id"];
 
                 <!-- Locations -->
 
-                <!-- <button type="submit" class="btn btn-success mb-5">Dodaj nową lokalizację</button> -->
                 <a class="btn btn-success mb-5" href="addLocation.php" role="button">Dodaj nową lokalizację</a>
 
                 <div class="table-responsive">
@@ -81,6 +82,7 @@ $id = $_SESSION["id"];
                         else{
                             $dbLocations =  "SELECT * FROM locations WHERE IDusers=2";
                             $result = $conn->query($dbLocations);
+                            $conn->close();
                         }
 
                         echo 

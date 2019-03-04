@@ -1,10 +1,12 @@
 <?php
-
-if (isset($_POST['deleteid'])){
+if(isset($_POST["locationName"])){
 
     require_once "connect.php";
 
-    $id = $_POST['deleteid'];
+    $idUser = $_SESSION["id"];
+    $locationName = $_POST["locationName"];
+    $locationLat = $_POST["locationLat"];
+    $locationLng = $_POST["locationLng"];
 
     $conn = new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -15,9 +17,10 @@ if (isset($_POST['deleteid'])){
         echo("Connection failed: ".$conn->connect_error);
     }
     else{
-        $dbLocations =  "DELETE FROM locations WHERE ID='$id'";
+        $dbLocations =  "INSERT INTO locations VALUES (NULL, '$idUser', '$locationName', '$locationLat', '$locationLng');";
         $result = $conn->query($dbLocations);
         $conn->close();
     }
 }
+
 ?>
