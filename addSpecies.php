@@ -2,7 +2,11 @@
 <html lang="pl">
 
 <!-- PHP -->
+<?php
 
+session_start();
+
+?>
 
 <!-- HTML -->
 
@@ -21,7 +25,7 @@
 
 
             <!-- Heading -->
-            <!-- <h3>Jak tam w terenie, <?php echo $_SESSION["name"]."? ID: ".$_SESSION["id"]; ?></h1> -->
+            <h3>Jak tam w terenie, <?php echo $_SESSION["name"]."? ID: ".$_SESSION["id"]; ?></h1>
 
                 <!-- Navbar -->
                 <nav class="navbar navbar-light bg-light navbar-expand-md justify-content-center mt-5 rounded">
@@ -39,7 +43,7 @@
                                 <a class="nav-link" href="addSpecies.php">Moja lista</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Moje lokalizacje</a>
+                                <a class="nav-link" href="locations.php">Moje lokalizacje</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Ranking</a>
@@ -51,7 +55,7 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav> 
 
 <?php
 
