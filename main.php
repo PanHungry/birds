@@ -70,12 +70,13 @@ session_start();
                         <div class="row mt-3">
                             <div class="form-group col-md">
                                 <label for="speciesInput0">Gatunek:</label>
-                                <input type="text" class="form-control autoCompleteInput" id="speciesInput0" name="speciesInput0" placeholder="Wpisz gatunek" >
+                                <input type="text" class="form-control speciesInput autoCompleteInput" id="speciesInput0" name="speciesInput0" placeholder="Wpisz gatunek" >
                                 <div id="responsespeciesInput0"></div>
                             </div>
                             <div class="form-group col-md">
                                 <label for="locationInput0">Lokalizacja:</label>
-                                <input type="text" class="form-control " id="locationInput0" name="locationInput0">
+                                <input type="text" class="form-control locationInput autoCompleteInput" id="locationInput0" name="locationInput0">
+                                <div id="responselocationInput0"></div>
                             </div>
                             <div class="form-group col-md">
                                 <label for="dateInput0">Data:</label>

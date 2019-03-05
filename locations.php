@@ -80,7 +80,7 @@ include "insertLocation.php";
                             echo("Connection failed: ".$conn->connect_error);
                         }
                         else{
-                            $dbLocations =  "SELECT * FROM locations WHERE IDusers=2";
+                            $dbLocations =  "SELECT * FROM locations WHERE IDusers='$id'";
                             $result = $conn->query($dbLocations);
                             $conn->close();
                         }
