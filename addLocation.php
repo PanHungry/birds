@@ -87,12 +87,12 @@ $id = $_SESSION["id"];
                         <div class="form-group col-md">
                             <label for="locationLat">Szerokość:</label>
                             <input type="text" class="form-control" id="locationLat" name="locationLat"
-                                placeholder="Wpisz lub zaznacz punkt na mapie">
+                                placeholder="Zaznacz punkt na mapie">
                         </div>
                         <div class="form-group col-md">
                             <label for="locationLng">Długość:</label>
                             <input type="text" class="form-control" id="locationLng" name="locationLng"
-                                placeholder="Wpisz lub zaznacz punkt na mapie">
+                                placeholder="Zaznacz punkt na mapie">
                         </div>
                     </div>
                 </form>

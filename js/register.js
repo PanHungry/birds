@@ -39,7 +39,7 @@ function validateEmail(email) {
 //////////////////////////////////////////////////////
 
 function validateName(name) {
-  var nameRegex = /^[a-zA-Z0-9]+$/;
+  var nameRegex = /^[a-zA-Z0-9 ]+$/;
   var validName = name.match(nameRegex);
 
   return validName;

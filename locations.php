@@ -64,7 +64,7 @@ include "insertLocation.php";
 
                 <!-- Locations -->
 
-                <a class="btn btn-success mb-5" href="addLocation.php" role="button">Dodaj nową lokalizację</a>
+                <a class="btn btn-success mb-5" href="addLocation.php" role="button">Zobacz na mapie lub dodaj nową</a>
 
                 <div class="table-responsive">
 
@@ -80,7 +80,7 @@ include "insertLocation.php";
                             echo("Connection failed: ".$conn->connect_error);
                         }
                         else{
-                            $dbLocations =  "SELECT * FROM locations WHERE IDusers='$id'";
+                            $dbLocations =  "SELECT * FROM locations";
                             $result = $conn->query($dbLocations);
                             $conn->close();
                         }

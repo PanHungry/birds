@@ -13,13 +13,15 @@ $sqlPL = $conn->query($polishSigns);
     }
     else{
 
-    $dbNameCheck =  "SELECT name,lng,lat FROM locations WHERE idUsers='$id'";
+    $dbNameCheck =  "SELECT name,lng,lat FROM locations";
     $result = $conn->query($dbNameCheck);
 
     while($fetch=$result->fetch_array()) {
         $lngs[] = $fetch;
         }
      }
+
+     $conn->close();
 ?>
 
 <script>
@@ -37,7 +39,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 //  Load markers
 
-var data = <?php echo JSON_encode($lngs); ?>;
+var data = 
+<?php echo JSON_encode($lngs); ?>;
+
 console.log(data);
 
 // var popup = L.popup();

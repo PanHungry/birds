@@ -19,7 +19,7 @@ $idUser = $_SESSION["id"];
         if($_POST['search']==1) {
             $sql = $conn->query("SELECT speciesPL FROM birds WHERE speciesPL LIKE '%$q%'");
         } else if ($_POST['search']==2) {
-            $sql = $conn->query("SELECT name FROM locations WHERE IDusers='$idUser' AND name LIKE '%$q%'");
+            $sql = $conn->query("SELECT name FROM locations WHERE name LIKE '%$q%'");
         }
 
         if($sql->num_rows > 0) {

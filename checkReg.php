@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
       $name = test_input($_POST["name"]);
       // check if name only contains letters and whitespace
-      if (!preg_match("/^[a-zA-Z0-9]+$/",$name)) {
+      if (!preg_match("/^[a-zA-Z0-9 ]+$/",$name)) {
         $nameErr = "Używaj tylko znaków alfanumerycznych!"; 
         $validationOK = false;
       }

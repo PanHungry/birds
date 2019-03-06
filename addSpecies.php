@@ -59,15 +59,11 @@ session_start();
 
 <?php
 
-$i = 0;
+include_once "insertObservation.php"
 
-while(isset($_POST["speciesInput".$i])){
-    echo $_POST["speciesInput".$i]."<br>";
-    echo $_POST["locationInput".$i]."<br>";
-    echo $_POST["dateInput".$i]."<br><br>";
-    $i++;
-}
 ?>
+
+
         </div>
     </div>
 
