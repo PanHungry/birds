@@ -83,6 +83,7 @@
 
 #mapid {
     height: 600px;
+    color: black;
 }
 
 @media (min-width: 768px){

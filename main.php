@@ -66,7 +66,7 @@ session_start();
                 <div id="addForms">
                     <button type="submit" class="btn btn-success mt-5" onclick="addFields()">Dodaj więcej gatunków</button>
 
-                    <form autocomplete="off" class="form-group justify-content-center" id="addForm" action="addSpecies.php" method="POST">
+                    <form autocomplete="off" class="form-group justify-content-center" id="addForm" action="insertObservation.php" method="POST">
                         <div class="row mt-3">
                             <div class="form-group col-md">
                                 <label for="speciesInput0">Gatunek:</label>

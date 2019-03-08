@@ -1,9 +1,12 @@
 <?php
 
+session_start();
 
 $i = 0;
 
 $idUser = $_SESSION["id"];
+
+echo $idUser;
 
 if(isset($_POST["speciesInput0"])){
 
@@ -55,4 +58,6 @@ if(isset($_POST["speciesInput0"])){
         $conn->close();
     }
 
+    header ('Location: addSpecies.php');
+    
 ?>

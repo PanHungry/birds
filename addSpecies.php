@@ -57,13 +57,15 @@ session_start();
                     </div>
                 </nav> 
 
+                <div class="table-responsive mt-5">
+
 <?php
 
-include_once "insertObservation.php"
+include_once "showObservations.php";
 
 ?>
 
-
+            </div>
         </div>
     </div>
 

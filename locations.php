@@ -80,7 +80,7 @@ include "insertLocation.php";
                             echo("Connection failed: ".$conn->connect_error);
                         }
                         else{
-                            $dbLocations =  "SELECT * FROM locations";
+                            $dbLocations =  "SELECT * FROM locations WHERE IDusers=$id";
                             $result = $conn->query($dbLocations);
                             $conn->close();
                         }
@@ -89,9 +89,9 @@ include "insertLocation.php";
                         '<table class="table table-light table-striped">
                             <thead>
                             <tr>
-                                <th scope="col">Lokalizacja</th>
-                                <th scope="col">Szerokość</th>
-                                <th scope="col">Długość</th>
+                                <th scope="col" class="align-middle">Lokalizacja</th>
+                                <th scope="col" class="align-middle d-none d-lg-table-cell">Szerokość</th>
+                                <th scope="col" class="align-middle d-none d-lg-table-cell">Długość</th>
                                 <th scope="col"></th>
                             </tr>
                             </thead>
@@ -101,10 +101,11 @@ include "insertLocation.php";
 
                         echo 
                         '<tr>
-                            <td>'.$fetch['name'].'</td>
-                            <td>'.$fetch['lat'].'</td>
-                            <td>'.$fetch['lng'].'</td>
-                            <td><button type="submit" class="btn btn-sm btn-danger m-0 deletebtn" id='.$fetch['ID'].'>Usuń</button></td>
+                            <td class="align-middle">'.$fetch['name'].'</td>
+                            <td class="align-middle d-none d-lg-table-cell">'.$fetch['lat'].'</td>
+                            <td class="align-middle d-none d-lg-table-cell">'.$fetch['lng'].'</td>
+                            <td class="align-middle"><button type="submit" class="btn btn-sm btn-success m-1 editbtn" id='.$fetch['ID'].'>Edytuj</button>
+                                <button type="submit" class="btn btn-sm btn-danger m-1 deletebtn" id='.$fetch['ID'].'>Usuń</button></td>
                         </tr>';
                         }
 

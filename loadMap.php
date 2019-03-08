@@ -37,6 +37,26 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
     id: 'mapbox.streets'
 }).addTo(mymap);
 
+// Add geocoder
+
+var geocoder = L.Control.geocoder({
+        defaultMarkGeocode: false,
+        collapsed: false,
+        placeholder: "Szukaj...",
+        errorMessage: "Nic nie znaleziono :("
+    })
+    .on('markgeocode', function(e) {
+        var bbox = e.geocode.bbox;
+        var poly = L.polygon([
+             bbox.getSouthEast(),
+             bbox.getNorthEast(),
+             bbox.getNorthWest(),
+             bbox.getSouthWest()
+        ]);
+        mymap.fitBounds(poly.getBounds());
+    })
+    .addTo(mymap);
+
 //  Load markers
 
 var data = 
@@ -83,7 +103,5 @@ function onMapClick(e) {
 }
 
 mymap.on('click', onMapClick);
-
-
 
 </script>
